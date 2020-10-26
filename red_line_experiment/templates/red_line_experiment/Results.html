@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Round {{ subsession.round_number }}: Results
+{% endblock %}
+
+{% block content %}
+
+    {% if player.is_player_s %}
+        <p>
+            Player R chose {{ bucket_guessed }}
+        </p>
+    {% endif %}
+
+    <p>
+        The bucket is {{ bucket_type }}
+    </p>
+
+    <p>
+        Your payoff of this round is {{ player.payoff }}
+    </p>
+
+    <p>
+        {% if player.round_number < Constants.num_rounds %}
+            Press <strong>Next</strong> to proceed to the next round.
+        {% else %}
+            Press <strong>Next</strong> to proceed to the lottery choice task.
+        {% endif %}
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

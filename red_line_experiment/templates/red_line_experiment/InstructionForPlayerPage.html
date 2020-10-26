@@ -1,0 +1,135 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <style>
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Instruction for Player
+    {% if player.role == 'S' %}
+        S
+    {% else %}
+        R
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In this experiment each participant will be assigned to one of two roles: S or R.
+    </p>
+
+    <p>
+        Today you are a <strong>Player {{ player.role }}</strong>.
+    </p>
+
+    <p>
+        You will play this role for 50 rounds, and each round is a separate decision task.
+    </p>
+
+    <p>
+        Please read the instruction sheet carefully.
+    </p>
+
+    <p>
+        {% if player.role == "R" %}
+        As a Player R, your job is to name the color of the bucket, <em>Silver</em> or <em>Gold</em>.
+
+        Before making your decision, you will observe Player <em>S</em>’s action. Player <em>S</em> either reports
+        you that he or she has drawn a <em>Silver</em> ball or remains silent. Your payoff in each round is
+        determined as follows.
+
+        <ol>
+            <li>
+                If you choose <em>Gold</em> and the color of the bucket is <em>Gold</em>, you will receive a
+                payoff that is randomly drawn from the interval <span class="blue">[30 and 70] or [10 and 90]</span> at the beginning of each round.
+            </li>
+            <li>
+                You will know the exact value, but Player <em>S</em> only knows that the value is randomly
+                drawn from the interval, and every value within the interval is equally likely to be
+                drawn.
+            </li>
+            <li>
+                If you choose <em>Silver</em> and the color of the bucket is <em>Silver</em>, you will receive a
+                payoff of <span class="blue">50</span>.
+            </li>
+            <li>
+                If you choose the wrong color of the bucket, you will receive a payoff of <span class="blue">0</span>.
+            </li>
+            <li>
+                If you choose the color of the bucket correctly, Player <em>S</em> will receive a payoff of
+                <span class="red">
+                    {{group.v}}.
+                </span>
+            </li>
+            <li>
+                If you choose the wrong color of the bucket, Player <em>S</em> will receive a payoff of <span class="red">0</span>.
+            </li>
+            <li>
+                If Player <em>S</em> reports <em>Silver</em> to you but you decide to choose <em>Gold</em>,
+                <span class="red">{{group.x}}</span> points will be deducted from his or her payoff.
+            </li>
+        </ol>
+        {% else %}
+        As a Player <em>S</em>, your job is to draw a ball from the chosen bucket and, if the ball you draw is
+        <em>Silver</em>, decide whether to report <em>Silver</em> to Player <em>S</em>. If the ball you draw is
+        <em>Gold</em>, you don’t need to do further action in this round.
+        Your payoff in each round is determined jointly by your and Player <em>R</em>’s action.
+        <ol>
+            <li>
+                If Player <em>R</em> chooses the color of the bucket correctly, you will receive a payoff of
+                <span class="red">{{group.v}}</span>.
+            </li>
+            <li>
+                If Player <em>R</em> chooses the wrong color of the bucket, you will receive a payoff of <span class="red">0</span>.
+            </li>
+            <li>
+                If you report <em>Silver</em> but Player <em>R</em> chooses <em>Gold</em>, <span class="red">{{group.x}}</span>
+                points will be deducted from your payoff.
+            </li>
+            <li>
+                If Player <em>R</em> chooses <em>Gold</em> and the color of the bucket is <em>Gold</em>, he or she will receive
+                a payoff <span class="blue">50</span>.
+            </li>
+            <li>
+                If Player <em>R</em> chooses the wrong color of the bucket, he or she will receive a payoff <span class="blue">0</span>.
+            </li>
+            <li>
+                If Player <em>R</em> chooses <em>Silver</em> and the color of the bucket is <em>Silver</em>, he or she will receive
+                a payoff that could be any number randomly drawn between <span class="blue">[10 and 90] or [30 and 70]</span> at the beginning of each round.
+            </li>
+        </ol>
+        {% endif %}
+    </p>
+
+    <p>
+        {% if player.role == "R" %}
+        Your and Player S’s payoffs are summarized as below.
+        {% else %}
+        Your and Player R’s payoffs are summarized as below.
+        {% endif %}
+    </p>
+
+    {% include Constants.payoff_template_instructions %}
+
+    <p class="red">
+        Note: the payoff matrices for each round will be displayed on the screens for the paired participants.
+    </p>
+
+    <p>
+        After reading the instruction, press <strong>Next</strong> to proceed to the control questionnaire.
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

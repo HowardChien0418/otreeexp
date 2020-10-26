@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        <strong>Congratulations!</strong> You have completed the experiment.
+        Your reward today is {{ participant.payoff_plus_participation_fee }}.
+        We sincerely thank you for your participation.
+    </p>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-xl-6">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Points</th>
+                        <th>USD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Participation fee</td>
+                        <td>-</td>
+                        <td>{{ session.config.participation_fee }}</td>
+                    </tr>
+                    <tr>
+                        <td>Payoff of a random round</td>
+                        <td>{{ participant.vars.experiment_payoff }}</td>
+                        <td>{{ experiment_payoff_usd }}</td>
+                    </tr>
+                    <tr>
+                        <td>Lottery result</td>
+                        <td>{{ participant.vars.lottery_payoff }}</td>
+                        <td>{{ lottery_payoff_usd }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td>-</td>
+                        <td><strong>{{ participant.payoff_plus_participation_fee }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

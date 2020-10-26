@@ -1,0 +1,54 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <style>
+        .redline_table table {
+            border-collapse: collapse;
+        }
+
+        .redline_table table, .redline_table th, .redline_table td {
+            border: 1px solid black;
+            align: center;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Lottery choice task
+{% endblock %}
+
+{% block content %}
+    <p>
+        <table width="100%" class="redline_table">
+            <tr>
+                <th colspan="4">Option A</th>
+                <th colspan="4">Option B</th>
+                <th colspan="2">Your Choice</th>
+            </tr>
+            <tr>
+                <td>Probability</td>
+                <td>Prize</td>
+                <td>Probability</td>
+                <td>Prize</td>
+                <td>Probability</td>
+                <td>Prize</td>
+                <td>Probability</td>
+                <td>Prize</td>
+                <td colspan="2">A or B</td>
+            </tr>
+            {% for field in form %}
+                <tr>
+                    {{ field.label|safe }}
+                    {% for choice in field %}
+                        <td>{{ choice }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

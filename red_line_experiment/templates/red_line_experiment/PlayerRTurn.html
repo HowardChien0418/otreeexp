@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <style>
+        .tbd {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Round {{ subsession.round_number }}: Guess the Bucket
+{% endblock %}
+
+<!-- {% include Constants.timer_template %} -->
+
+{% block content %}
+
+    <p>
+        {% if group.player_s_reported %}
+            Player S drew a Silver ball.
+        {% else %}
+            Player S didn’t report the color of the ball to you.
+        {% endif %}
+    </p>
+
+    <p class="mt-3">
+        Which bucket do you want to choose?
+    </p>
+
+    <div>
+        <button name="bucket_guessed_gold" value="True" class="btn btn-primary btn-large">Gold</button>
+        <button name="bucket_guessed_gold" value="False" class="btn btn-primary btn-large">Silver</button>
+    </div>
+
+    {% include Constants.bucket_ball_template %}
+
+    {% include Constants.payoff_template %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% load otree %}
+
+<table class="table table-sm table-striped table-bordered text-center">
+    <thead>
+    <th colspan="2"></th>
+    <th colspan="2">Player R</th>
+    </thead>
+    <tbody>
+    <tr>
+        <th colspan="2"></th>
+        <td>Gold</td>
+        <td>Silver</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Player S</th>
+        <td>silent</td>
+        <td>0, 0</td>
+        <td>
+            {% if player.is_player_s %}
+            {{ group.v }}, [{{ w1_lower_bound }}, {{ w1_upper_bound }}]
+            {% else %}
+            {{ group.v }}, {{ group.w1 }}
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>report</td>
+        <td>{{ x_neg }}, 0</td>
+        <td>
+            {% if player.is_player_s %}
+            {{ group.v }}, [{{ w1_lower_bound }}, {{ w1_upper_bound }}]
+            {% else %}
+            {{ group.v }}, {{ group.w1 }}
+            {% endif %}
+        </td>
+    </tr>
+    </tbody>
+</table>

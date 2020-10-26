@@ -1,0 +1,28 @@
+{% load otree static %}
+
+{% block scripts %}
+<script>
+
+    function setupTimer(timeout) {
+        var timeLeft = timeout;
+        var downloadTimer = setInterval(function() {
+            if (timeLeft <= 0) {
+                clearInterval(downloadTimer);
+                alert("Time has run out. Please proceed to the next step.");
+                document.getElementById("countdown").innerHTML = "Proceed to the next step!";
+            } else {
+                document.getElementById("countdown").innerHTML = "You have <strong>" + timeLeft + "</strong> seconds remaining";
+            }
+            timeLeft -= 1;
+        }, 1000);
+    }
+
+    setupTimer({{ Constants.decision_time_seconds }});
+</script>
+{% endblock %}
+
+{% block content %}
+    <div class="alert alert-warning col-xl-12 col-lg-12">
+        <p class="mb-0" id="countdown"></p>
+    </div>
+{% endblock %}

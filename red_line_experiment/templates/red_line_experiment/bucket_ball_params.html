@@ -1,0 +1,35 @@
+{% load otree %}
+
+<div class="card mt-3">
+    <h4 class="card-header">
+        Bucket Probabilities
+    </h4>
+    <div class="card-body">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-xl-6">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th></th>
+                        <th class="text-center">Gold</th>
+                        <th class="text-center">Silver</th>
+                    </tr>
+                    <tr>
+                        <td>Probability</td>
+                        <td class="text-center">{{ golden_bucket_probability }}</td>
+                        <td class="text-center">{{ silver_bucket_probability }}</td>
+                    </tr>
+                    <tr>
+                        <td>No. of Golden balls</td>
+                        <td class="text-center">{{ Constants.golden_balls_golden_bucket }}</td>
+                        <td class="text-center">{{ Constants.golden_balls_silver_bucket }}</td>
+                    </tr>
+                    <tr>
+                        <td>No. of Silver balls</td>
+                        <td class="text-center">{{ silver_balls_golden_bucket }}</td>
+                        <td class="text-center">{{ silver_balls_silver_bucket }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

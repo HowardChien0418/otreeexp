@@ -1,0 +1,42 @@
+{% load otree %}
+
+<div class="card mt-3">
+    <h4 class="card-header">
+        Payoff Matrices for This Round
+    </h4>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 col-xl-6">
+                <div class="card">
+                    <h5 class="card-header">
+                        If the bucket is <u>Gold</u>:
+                    </h5>
+                    <div class="card-body">
+                        {% include Constants.payoff_gold %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-6 col-xl-6">
+                <div class="card">
+                    <h5 class="card-header">
+                        If the bucket is <u>Silver</u>:
+                    </h5>
+                    <div class="card-body">
+                        {% include Constants.payoff_silver %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer ">
+        {% if player.is_player_s %}
+        The number is randomly drawn from the interval between {{ w1_lower_bound }} and
+        {{ w1_upper_bound }}.
+        {% else %}
+        Player S only knows that a number is randomly drawn from the interval between
+        {{ w1_lower_bound }} and {{ w1_upper_bound }}.
+        {% endif %}
+    </div>
+</div>
+
+

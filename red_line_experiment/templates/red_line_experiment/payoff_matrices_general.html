@@ -1,0 +1,74 @@
+{% load otree %}
+
+<div class="row mb-3">
+    <div class="col-sm-5 col-lg-5 col-xl-5">
+        <div class="card">
+            <h5 class="card-header">
+                If the bucket is <u>Gold</u>:
+            </h5>
+            <div class="card-body">
+
+                <table class="table table-sm table-striped table-bordered text-center">
+                    <thead>
+                    <th colspan="2"></th>
+                    <td colspan="2"  class="blue">Player R</td>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th colspan="2"></th>
+                        <td>Gold</td>
+                        <td>Silver</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"  class="red">Player S</td>
+                        <td>silent</td>
+                        <td><span class="red">{{group.v}}</span>,  <span class="blue">50</span></td>
+                        <td><span class="red">0</span>,  <span class="blue">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>report</td>
+                        <td><span class="red">({{group.v}} - {{group.x}})</span>,  <span class="blue">50</span></td>
+                        <td><span class="red">0</span>,  <span class="blue">0</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-7 col-lg-7 col-xl-7">
+        <div class="card">
+            <h5 class="card-header">
+                If the bucket is <u>Silver</u>:
+            </h5>
+            <div class="card-body">
+
+                <table class="table table-sm table-striped table-bordered text-center">
+                    <thead>
+                    <th colspan="2"></th>
+                    <td colspan="2"  class="blue">Player R</td>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th colspan="2"></th>
+                        <td>Gold</td>
+                        <td>Silver</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="red">Player S</td>
+                        <td>silent</td>
+                        <td><span class="red">0</span>,  <span class="blue">0</span></td>
+                        <td><span class="red">{{group.v}}</span>,  (<span class="blue">[30, 70] or [10, 90]</span>)</td>
+                    </tr>
+                    <tr>
+                        <td>report</td>
+                        <td><span class="red">-{{group.x}}</span>, <span class="blue">0</span></td>
+                        <td><span class="red">{{group.v}}</span>,  (<span class="blue">[30, 70] or [10, 90]</span>)</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

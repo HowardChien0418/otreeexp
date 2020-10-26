@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Demographic Survey: Education
+{% endblock %}
+
+{% block content %}
+
+    {% if player.is_student %}
+        {% formfield player.student_semesters %}
+        {% formfield player.student_program %}
+    {% else %}
+        {% formfield player.highest_degree %}
+        {% formfield player.current_occupation %}
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

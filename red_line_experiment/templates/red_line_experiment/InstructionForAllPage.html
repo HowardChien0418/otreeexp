@@ -1,0 +1,111 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Welcome to this experiment!
+{% endblock %}
+
+{% block content %}
+
+<p>
+        You are participating in an experiment on decision-making. You will be paid in cash for your
+        participation, and the exact amount you receive will be determined during the experiment
+        and will depend on your decisions and the decisions of others. You will be paid your earnings
+        privately so that no other participant will find out how much you earn. These earnings
+        will be paid to you at the end of the experiment along with the 5 USD participation payment.
+    </p>
+
+    <p>
+        Please read the following instruction carefully. You can check this instruction throughout
+        the experiment. If you have any questions, please raise your hand and the experimenter will
+        answer you privately. Please do not ask any questions aloud.
+    </p>
+
+    <p>
+        This experiment consists of 50 rounds, and each round is a separate decision task. We will
+        randomly select one round to count for payment from the entire experiment. Each round is
+        equally likely to be selected. The points you receive from that round will be used to calculate
+        your payment for the experiment, and points will be converted to cash at the rate of 1 USD
+        for every 10 points. More specifically, we will take the total number of points you earned
+        in the round that counts, divide by 10, and then round this amount to the nearest quarter.
+        We will pay you this amount in addition to the 5 USD participation payment and a payment
+        determined by your decision in a lottery choice task.
+    </p>
+
+    <p>
+        In this experiment, each participant will be assigned to one of two roles: <em>S</em> or <em>R</em>. Please
+        refer to the next part of the instruction for your assigned role. Your role will remain fixed
+        throughout the experiment, and you will be provided with information specific to your role.
+    </p>
+
+    <p>
+        Before the experiment, you will be randomly matched with one other participant. In every
+        pair of participants, there will be one player in each role (one <em>S</em> player and one <em>R</em> player).
+        The pair will remain the same throughout the experiment.
+    </p>
+
+    <p>
+        Note that you will not know the identity of the other participant you are matched with,
+        and your earnings for each round depend only on your decision in that round and the decision
+        of the participant you are matched with in that round.
+    </p>
+
+    <p>
+        In this experiment, there are two buckets, <em>Gold</em> and <em>Silver</em>, each containing 20 balls of the
+        color of <em>Gold</em> and <em>Silver</em>.
+        <span class="red">
+            In the silver bucket, there are 12 silver balls and 8 golden balls. In the golden bucket,
+            there are 6 silver balls and 14 golden balls.
+        </span>
+    </p>
+<p>
+        In each round of the experiment, a bucket is randomly chosen.<br />
+        {% if group.sequence == 1 %}
+            <p class="red">In the first 20 rounds, the probability of having a silver bucket
+            is 0.3 and the probability of having a golden bucket is 0.7. In the following 20 rounds, the
+            probability of having a silver or golden bucket is 50-50. In the last 10 rounds, the probability
+            of having a silver bucket is 0.3 and the probability of having a golden bucket is 0.7. </p>
+        {% else %}
+            <p class="blue">In the first 20 rounds, the probability of having a silver or golden
+            bucket is 50-50. In the following 20 rounds, the probability of having a silver bucket is 0.3
+            and the probability of having a golden bucket is 0.7. In the last 10 rounds, the probability of
+            having a silver or golden bucket is 50-50. </p>
+        {% endif %}
+
+</p>
+
+    <p>
+        From the chosen bucket, Player <em>S</em> will draw a ball. If the ball is <em>Gold</em>, <em>S</em> does
+        not need to do any further action. If the ball is <em>Silver</em>, <em>S</em> should choose
+        whether to report the color to Player <em>R</em>.
+    </p>
+
+    <p>
+        After observing Player <em>S</em>’s action, either reporting <em>Silver</em> or remaining silent, Player <em>R</em>
+        needs to guess the color of the bucket, <em>Gold</em> and <em>Silver</em>.
+    </p>
+
+    <p>
+        After Player <em>R</em>’s action, this round ends, both players will observe their payoffs of this
+        round, and continue playing for an extra 49 rounds (so overall 50 rounds). After these decision
+        tasks, you will complete a lottery choice task. You need to make 10 decisions, and one of
+        them will be realized. The points you earn will also be converted to cash at the rate of 1 USD
+        for every 10 points and included in your final payment. After completing a post-experiment
+        survey, you will receive the payment. The experiment will take approximately 70 minutes.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

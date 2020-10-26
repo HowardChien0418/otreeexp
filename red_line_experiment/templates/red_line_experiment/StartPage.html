@@ -1,0 +1,132 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <style>
+        .tbd {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Welcome to this experiment!
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In this experiment each participant will be assigned to one of two roles: S or R.
+    </p>
+
+    <p>
+        Today you are a <strong>Player {{ player.role }}</strong>.
+    </p>
+
+    <p>
+        You will play this role for 50 rounds, and each round is a separate decision task.
+    </p>
+
+    <p>
+        Please read the instruction sheet carefully.
+    </p>
+
+    <p>
+        {% if player.role == "R" %}
+        As a Player R, your job is to name the color of the bucket, <i>Silver</i> or <i>Gold</i>.
+
+        Before making your decision, you will observe Player S’s action. Player S either reports
+        you that he or she has drawn a <i>Silver</i> ball or remains silent. Your payoff in each round is
+        determined as follows.
+
+        <ol>
+            <li>
+                If you chooses <i>Gold</i> and the color of the bucket is <i>Gold</i>, you will receive a
+                payoff W<sub>1</sub>.
+            </li>
+            <li>
+                If you chooses <i>Silver</i> and the color of the bucket is <i>Silver</i>, you will receive a
+                payoff W<sub>0</sub> = 50.
+            </li>
+            <li>
+                If you chooses the wrong color of the bucket, you will receive a payoff of 0.
+            </li>
+            <li>
+                If you chooses the color of the bucket correctly, Player S will receive a payoff
+                <span class="tbd">V = [20 or 30]</span>.
+            </li>
+            <li>
+                If you chooses the wrong color of the bucket, Player S will receive a payoff of 0.
+            </li>
+            <li>
+                If Player S reports Silver to you but you decide to choose Gold, <span class="tbd">X = [5 or 10]</span>
+                points will be deducted from his or her payoff.
+            </li>
+            <li>
+                Although you know the value of W<sub>1</sub>. Player S only knows that W<sub>1</sub> is a value randomly
+                drawn from the interval between W<sub>0</sub> − &epsilon; and W<sub>0</sub> + &epsilon; <span class="tbd">([30 and 70] or
+                [10 and 90])</span>, and every value within the interval is equally likely to be drawn.
+            </li>
+        </ol>
+        {% else %}
+        As a Player S, your job is to draw a ball from the chosen bucket and, if the ball you drew is
+        Silver, decide whether to report Silver to Player S. If the ball you drew is Gold, you don’t need
+        to do further action in this round.
+        Your payoff in each round is determined jointly by your and Player R’s action.
+        <ol>
+            <li>
+                If Player R chooses the color of the bucket correctly, you will receive a payoff
+                <span class="tbd">V = [20 or 30]</span>.
+            </li>
+            <li>
+                If Player R chooses the wrong color of the bucket, you will receive a payoff of 0.
+            </li>
+            <li>
+                If you report <i>Silver</i> but Player R chooses <i>Gold</i>, <span class="tbd">X = [5 or 10]</span>
+                points will be deducted from your payoff.
+            </li>
+            <li>
+                If Player R chooses <i>Gold</i> and the color of the bucket is <i>Gold</i>, he or she will receive
+                a payoff W<sub>0</sub> = 50.
+            </li>
+            <li>
+                If Player R the wrong color of the bucket, he or she will receive a payoff 0.
+            </li>
+            <li>
+                If Player R chooses <i>Silver</i> and the color of the bucket is <i>Silver</i>, he or she will receive
+                a payoff W<sub>1</sub>. W<sub>1</sub> is a value randomly drawn from the interval between
+                W<sub>0</sub> − &epsilon; and W<sub>0</sub> + &epsilon; <span class="tbd">([30 and 70] or [10 and 90])</span>,
+                and every value within the interval is equally likely to be drawn.
+            </li>
+        </ol>
+        {% endif %}
+    </p>
+
+    <p>
+        {% if player.role == "R" %}
+        Your and Player S’s payoffs are summarized as below.
+        {% else %}
+        Your and Player R’s payoffs are summarized as below.
+        {% endif %}
+    </p>
+
+    {% include Constants.payoff_template %}
+
+    <p class="tbd">
+        Note: the values V, X, and
+        {% if player.role == "S" %}
+            the interval of
+        {% endif %}
+        W<sub>1</sub> are determined at the beginning of each round. The payoff
+        matrices for each round will display on the screens for the paired participants.
+    </p>
+
+    <p>
+        After reading the instruction, press <strong>Next</strong> to proceed to the control questionnaire.
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

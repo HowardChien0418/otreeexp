@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <style>
+        .action {
+            display: none;
+        }
+
+        .tbd {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Round {{ subsession.round_number }}: Draw a Ball
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function bucket_button_clicked() {
+            document.getElementById("ball_result").style.display = 'block';
+            document.getElementById("ball_action").style.display = 'block';
+            document.getElementById("selectBall").style.display = 'none';
+        }
+    </script>
+{% endblock %}
+
+<!-- {% include Constants.timer_template %} -->
+
+{% block content %}
+
+    <p>
+        Press the button below to draw a ball from the chosen bucket.
+    </p>
+    <p id="selectBall">
+        <button type="button" onclick="bucket_button_clicked()">Draw a ball</button>
+    </p>
+    <p id="ball_result" class="action mt-3">
+        You got a <strong>{{ ball_type }}</strong> ball!
+    </p>
+
+    <div id="ball_action" class="action">
+        {% if group.ball_is_gold %}
+            <p>
+                You don’t need to report the color to Player R, press <strong>Next</strong> to proceed.
+            </p>
+
+            {% next_button %}
+        {% else %}
+            <p>
+                Do you want to report the color of the ball to Player R?
+            </p>
+
+            <div>
+                <button name="player_s_reported" value="True" class="btn btn-primary btn-large">Yes</button>
+                <button name="player_s_reported" value="False" class="btn btn-primary btn-large">No</button>
+            </div>
+        {% endif %}
+    </div>
+
+    {% include Constants.bucket_ball_template %}
+
+    {% include Constants.payoff_template %}
+
+    {{ form.errors }}
+
+{% endblock %}

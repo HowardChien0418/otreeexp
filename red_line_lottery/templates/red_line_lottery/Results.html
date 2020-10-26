@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block styles %}
+    <style>
+        .realized {
+            color: green;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Lottery Results
+{% endblock %}
+
+{% block content %}
+    <p class="mb-3">
+        This is the end of the experiment, please proceed to complete a survey and collect your reward before
+        leaving the lab!
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+
