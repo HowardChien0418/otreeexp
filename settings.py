@@ -33,6 +33,7 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
+# Put label list here 
 ROOMS = [
     dict(
         name='econ101',
