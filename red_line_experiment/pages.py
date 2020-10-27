@@ -145,7 +145,7 @@ page_sequence = [
     Questionnaire,
     Questionnaire,
     Questionnaire,
-    InstructoionsEnd,
+    InstructionsEnd,
     GroupArrivedPlayersPage,
     SetupRoundParametersPage,
     GameStartPage,
