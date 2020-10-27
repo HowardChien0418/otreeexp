@@ -90,7 +90,7 @@ class Results(Page):
                 self.group.paid_round_number - 1
             ]
 
-class InstructoionsEnd(Page):
+class InstructionsEnd(Page):
     def is_displayed(self) -> bool:
         """
         To be displayed only after the final question.
