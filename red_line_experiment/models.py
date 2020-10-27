@@ -53,7 +53,7 @@ class Constants(BaseConstants):
 
 
     payoff_template_instructions = 'red_line_experiment/payoff_matrices_general.html'
-    name_in_url = 'red_line_instruction_questionnaire'
+    ##name_in_url = 'red_line_instruction_questionnaire'
     players_per_group = 2
     num_rounds = 50
 
