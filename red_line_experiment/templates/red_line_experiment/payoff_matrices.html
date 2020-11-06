@@ -28,12 +28,12 @@
             </div>
         </div>
     </div>
-    <div class="card-footer ">
+    <div class="card-footer blue">
         {% if player.is_player_s %}
-        The number is randomly drawn from the interval between {{ w1_lower_bound }} and
+        The payoff for Player R when the bucket is Silver and Player R chooses Silver is a value randomly drawn from the interval between {{ w1_lower_bound }} and
         {{ w1_upper_bound }}.
         {% else %}
-        Player S only knows that a number is randomly drawn from the interval between
+        Player S only knows that the payoff for you when the bucket is Silver and you choose Silver is a value randomly drawn from the interval between
         {{ w1_lower_bound }} and {{ w1_upper_bound }}.
         {% endif %}
     </div>

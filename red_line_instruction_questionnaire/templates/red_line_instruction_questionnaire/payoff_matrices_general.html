@@ -1,0 +1,74 @@
+{% load otree %}
+
+<div class="row mb-3">
+    <div class="col-sm-5 col-lg-5 col-xl-5">
+        <div class="card">
+            <h5 class="card-header">
+                If the bucket is <u>Gold</u>:
+            </h5>
+            <div class="card-body">
+
+                <table class="table table-sm table-striped table-bordered text-center">
+                    <thead>
+                    <th colspan="2"></th>
+                    <th colspan="2">Player R</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th colspan="2"></th>
+                        <td>Gold</td>
+                        <td>Silver</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">Player S</th>
+                        <td>silent</td>
+                        <td>({20, 30}, 50)</td>
+                        <td>(0, 0)</td>
+                    </tr>
+                    <tr>
+                        <td>report</td>
+                        <td>({20, 30} - {5, 10}, 50)</td>
+                        <td>(0, 0)</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-7 col-lg-7 col-xl-7">
+        <div class="card">
+            <h5 class="card-header">
+                If the bucket is <u>Silver</u>:
+            </h5>
+            <div class="card-body">
+
+                <table class="table table-sm table-striped table-bordered text-center">
+                    <thead>
+                    <th colspan="2"></th>
+                    <th colspan="2">Player R</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th colspan="2"></th>
+                        <td>Gold</td>
+                        <td>Silver</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">Player S</th>
+                        <td>silent</td>
+                        <td>(0, 0)</td>
+                        <td>({20, 30}, {[30, 70], [10, 90]})</td>
+                    </tr>
+                    <tr>
+                        <td>report</td>
+                        <td>({-5, -10}, 0)</td>
+                        <td>({20, 30}, {[30, 70], [10, 90]})</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

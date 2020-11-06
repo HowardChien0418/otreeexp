@@ -17,9 +17,9 @@
         <td>0, 0</td>
         <td>
             {% if player.is_player_s %}
-            {{ group.v }}, [{{ w1_lower_bound }}, {{ w1_upper_bound }}]
+            {{ group.v }}, <span class="blue">[{{ w1_lower_bound }}, {{ w1_upper_bound }}]</span>
             {% else %}
-            {{ group.v }}, {{ group.w1 }}
+            {{ group.v }}, <span class="blue">{{ group.w1 }}</span>
             {% endif %}
         </td>
     </tr>
@@ -28,9 +28,9 @@
         <td>{{ x_neg }}, 0</td>
         <td>
             {% if player.is_player_s %}
-            {{ group.v }}, [{{ w1_lower_bound }}, {{ w1_upper_bound }}]
+            {{ group.v }}, <span class="blue">[{{ w1_lower_bound }}, {{ w1_upper_bound }}]</span>
             {% else %}
-            {{ group.v }}, {{ group.w1 }}
+            {{ group.v }}, <span class="blue">{{ group.w1 }}</span>
             {% endif %}
         </td>
     </tr>

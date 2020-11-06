@@ -2,12 +2,9 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-def get_question(group, role, pair_num):
-    return Questionnaire.get_question(group,role,pair_num)
 
 class GroupArrivedPlayersPage(WaitPage):
     body_text = "Wait for another participant..."
-   # group_by_arrival_time = True
 
     def is_displayed(self) -> bool:
         return self.round_number == 1
@@ -90,62 +87,8 @@ class Results(Page):
                 self.group.paid_round_number - 1
             ]
 
-class InstructionsEnd(Page):
-    def is_displayed(self) -> bool:
-        """
-        To be displayed only after the final question.
-        """
-        return self.round_number == self.player.num_questions()
-
-    def app_after_this_page(self, upcoming_apps):
-        """
-        Go the next app after this page.
-        It allows to control number of questions for each player separately.
-        """
-        return upcoming_apps[0]
-
-class Questionnaire(Page):
-    form_model = 'player'
-    form_fields = ['answer']
-
-    def is_displayed(self):
-        return self.round_number == 1 and self.player.get_question_page() <= Constants.questions_num[self.player.role()]
-
-
-class InstructionForAllPage(Page):
-    # timeout_seconds = Constants.instruction_time_seconds
-
-    def is_displayed(self) -> bool:
-        """
-        To be displayed only in the beginning.
-        """
-        return self.round_number == 1
-
-
-
-class InstructionForPlayerPage(InstructionForAllPage):
-    def is_displayed(self) -> bool:
-        """
-        To be displayed only in the beginning.
-        """
-        return self.round_number == 1
-
-    def vars_for_template(self) -> dict:
-        vars_for_template = self.group.payoff_params()
-        return vars_for_template
 
 page_sequence = [
-    InstructionForAllPage,
-    InstructionForPlayerPage,
-    Questionnaire,
-    Questionnaire,
-    Questionnaire,
-    Questionnaire,
-    Questionnaire,
-    Questionnaire,
-    Questionnaire,
-    Questionnaire,
-    InstructionsEnd,
     GroupArrivedPlayersPage,
     SetupRoundParametersPage,
     GameStartPage,

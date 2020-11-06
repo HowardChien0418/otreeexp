@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questionnaire {{group.round_number}}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        To ensure your full understanding of the rule of this experiment, please answer the following question:
+    </p>
+
+    <p>
+        {{ question|safe }}
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

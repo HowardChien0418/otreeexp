@@ -11,18 +11,21 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 
 SESSION_CONFIGS = [
+
     dict(
-        name='red_line_experiment',
-        display_name='Red Line Experiment',
+        name='red_line_experiment_old',
+        display_name='Red Line Experiment Old',
         num_demo_participants=4,
         participation_fee=5.00,
         real_world_currency_per_point=0.10,
         app_sequence=[
+            'red_line_instruction_questionnaire',
             'red_line_experiment',
             'red_line_lottery',
             'red_line_demographic_survey'
         ]
     )
+
 ]
 
 # ISO-639 code
@@ -33,12 +36,11 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
-# Put label list here 
 ROOMS = [
     dict(
         name='econ101',
-        display_name='ssel nyuad',
-        participant_label_file='_rooms/ssel.txt',
+        display_name='Econ 101 class',
+        participant_label_file='_rooms/econ101.txt',
     ),
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
@@ -55,3 +57,5 @@ Welcome!
 SECRET_KEY = '9g!-yrk!f3o%=%^cp=f#bl6qsoct$=6+nms@3d&t5djgro5v2$'
 
 INSTALLED_APPS = ['otree']
+
+
