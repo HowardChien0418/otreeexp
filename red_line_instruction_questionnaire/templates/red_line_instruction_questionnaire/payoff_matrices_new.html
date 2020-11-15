@@ -1,47 +1,48 @@
 {% load otree %}
 <h5 >
-                If the <strong>bucket is <u>Gold</u></strong>
+                如果桶子是<strong>金色</strong>時：
+                <!-- If the <strong>bucket is <u>Gold</u></strong> -->
             </h5>
 
 
                 <table class="table table-striped table-bordered text-center">
                     <thead>
                     <th colspan="3"></th>
-                    <th colspan="1" rowspan="2" class="gold" >Gold Ball is withdrawn</th>
-                    <th colspan="2" class="silver">Silver Ball is withdrawn</th>
+                    <th colspan="1" rowspan="2" class="gold" >金球被抽取</th>
+                    <th colspan="2" class="silver">銀球被抽取</th>
                     </thead>
                     <tbody>
                     <tr>
                         <th colspan="3" style="background:white"></th>
                         <td class="gold"></td>
-                        <td class="darksilver" style="font-weight:bold">Report</td>
-                        <td class="darksilver"  style="font-weight:bold">Silent</td>
+                        <td class="darksilver" style="font-weight:bold">回報</td>
+                        <td class="darksilver"  style="font-weight:bold">沈默</td>
                     </tr>
                     <tr>
-                        <td rowspan="4" style="vertical-align:middle; background:#e8f7ba; font-weight:bold">Selected <br> Bucket</td>
-                        <td rowspan="2"  class="gold" style="vertical-align:middle;border-bottom: thick double black;font-weight:bold">Gold</td>
-                        <td style="font-weight:bold">R payoff</td>
+                        <td rowspan="4" style="vertical-align:middle; background:#e8f7ba; font-weight:bold">被選中桶子</td>
+                        <td rowspan="2"  class="gold" style="vertical-align:middle;border-bottom: thick double black;font-weight:bold">金桶</td>
+                        <td style="font-weight:bold">R 報酬</td>
                         <td>50</td>
                         <td>50</td>
                         <td>50</td>
                     </tr>
 
                     <tr style="border-bottom: thick double black;">
-                        <td style="font-weight:bold">S payoff</td>
+                        <td style="font-weight:bold">S 報酬</td>
                         <td>{{group.v}}</td>
                         <td>({{group.v}} - {{group.x}})</td>
                         <td>{{group.v}}</td>
                     </tr>
 
                     <tr>
-                        <td rowspan="2"  class="silver" style="vertical-align:middle;font-weight:bold">Silver</td>
-                        <td style="font-weight:bold">R payoff</td>
+                        <td rowspan="2"  class="silver" style="vertical-align:middle;font-weight:bold">銀桶</td>
+                        <td style="font-weight:bold">R 報酬</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td style="font-weight:bold">S payoff</td>
+                        <td style="font-weight:bold">S 報酬</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -51,57 +52,52 @@
 <br>
 
 <h5 class="card-header" style=" background:white">
-                If the <strong>bucket is <u>Silver</u></strong>
+          如果桶子是<strong>銀色</strong>時：
+                <!-- If the <strong>bucket is <u>Silver</u></strong> -->
             </h5>
 
 
                 <table class="table table-striped table-bordered text-center">
                     <thead>
                     <th colspan="3"></th>
-                    <th colspan="1" rowspan="2" class="gold" >Gold Ball is withdrawn</th>
-                    <th colspan="2" class="silver">Silver Ball is withdrawn</th>
+                    <th colspan="1" rowspan="2" class="gold" >金球被抽取</th>
+                    <th colspan="2" class="silver">銀球被抽取</th>
                     </thead>
                     <tbody>
                     <tr>
                         <th colspan="3"></th>
                         <td class="gold"></td>
-                        <td class="darksilver" style="font-weight:bold">Report</td>
-                        <td class="darksilver"  style="font-weight:bold">Silent</td>
+                        <td class="darksilver" style="font-weight:bold">回報</td>
+                        <td class="darksilver"  style="font-weight:bold">沈默</td>
                     </tr>
                     <tr>
-                        <td rowspan="4" style="vertical-align:middle; background:#e8f7ba; font-weight:bold">Selected <br> Bucket</td>
-                        <td rowspan="2"  class="gold" style="vertical-align:middle;border-bottom: thick double black;font-weight:bold">Gold</td>
-                        <td style="font-weight:bold">R payoff</td>
+                        <td rowspan="4" style="vertical-align:middle; background:#e8f7ba; font-weight:bold">被選中桶子</td>
+                        <td rowspan="2"  class="gold" style="vertical-align:middle;border-bottom: thick double black;font-weight:bold">金桶</td>
+                        <td style="font-weight:bold">R 報酬</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                     </tr>
 
                     <tr style="border-bottom: thick double black;">
-                        <td style="font-weight:bold">S payoff</td>
+                        <td style="font-weight:bold">S 報酬</td>
                         <td>0</td>
                         <td>- {{group.x}}</td>
                         <td>0</td>
                     </tr>
 
                     <tr>
-                        <td rowspan="2"  class="silver" style="vertical-align:middle;font-weight:bold">Silver</td>
-                        <td style="font-weight:bold">R payoff</td>
-                        <td>random number from<br>[10,90] or [30,70]</td>
-                        <td>random number from<br>[10,90] or [30,70]</td>
-                        <td>random number from<br>[10,90] or [30,70]</td>
+                        <td rowspan="2"  class="silver" style="vertical-align:middle;font-weight:bold">銀桶</td>
+                        <td style="font-weight:bold">R 報酬</td>
+                        <td>[10,90] 或 [30,70]之間<br>的任意數字</td>
+                        <td>[10,90] 或 [30,70]之間<br>的任意數字</td>
+                        <td>[10,90] 或 [30,70]之間<br>的任意數字</td>
                     </tr>
                     <tr>
-                        <td style="font-weight:bold">S payoff</td>
+                        <td style="font-weight:bold">S 報酬</td>
                         <td>{{group.v}}</td>
                         <td>{{group.v}}</td>
                         <td>{{group.v}}</td>
                     </tr>
                     </tbody>
                 </table>
-
-
-
-
-
-

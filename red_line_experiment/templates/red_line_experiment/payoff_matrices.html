@@ -9,7 +9,7 @@
             <div class="col-sm-6 col-lg-6 col-xl-6">
                 <div class="card">
                     <h5 class="card-header">
-                        If the bucket is <u>Gold</u>:
+                        如果桶子是<u>金色</u>:
                     </h5>
                     <div class="card-body">
                         {% include Constants.payoff_gold %}
@@ -19,7 +19,7 @@
             <div class="col-sm-6 col-lg-6 col-xl-6">
                 <div class="card">
                     <h5 class="card-header">
-                        If the bucket is <u>Silver</u>:
+                        如果桶子是<u>銀色</u>:
                     </h5>
                     <div class="card-body">
                         {% include Constants.payoff_silver %}
@@ -30,13 +30,13 @@
     </div>
     <div class="card-footer blue">
         {% if player.is_player_s %}
-        The payoff for Player R when the bucket is Silver and Player R chooses Silver is a value randomly drawn from the interval between {{ w1_lower_bound }} and
-        {{ w1_upper_bound }}.
+        如果R猜桶子是銀色而桶子真的是銀色，他的報酬將會是在{{ w1_lower_bound }}至{{ w1_upper_bound }}間的一個數值。
+        <!-- The payoff for Player R when the bucket is Silver and Player R chooses Silver is a value randomly drawn from the interval between {{ w1_lower_bound }} and
+        {{ w1_upper_bound }}. -->
         {% else %}
-        Player S only knows that the payoff for you when the bucket is Silver and you choose Silver is a value randomly drawn from the interval between
-        {{ w1_lower_bound }} and {{ w1_upper_bound }}.
+        S只知道你的報酬會是在{{ w1_lower_bound }} 至 {{ w1_upper_bound }}間隨機抽取的一個數值。
+        <!-- Player S only knows that the payoff for you when the bucket is Silver and you choose Silver is a value randomly drawn from the interval between
+        {{ w1_lower_bound }} and {{ w1_upper_bound }}. -->
         {% endif %}
     </div>
 </div>
-
-

@@ -10,17 +10,20 @@
 {% endblock %}
 
 {% block title %}
-    Welcome to this experiment!
+    歡迎來到本實驗！！
+    <!-- Welcome to this experiment! -->
 {% endblock %}
 
 {% block content %}
 
     <p>
-        In this experiment each participant will be assigned to one of two roles: S or R.
+      在本實驗，每一位參與者會被指派擔任<b>S</b>或<b>R</b>的角色。
+      <!-- In this experiment each participant will be assigned to one of two roles: S or R. -->
     </p>
 
     <p>
-        Today you are a <strong>Player {{ player.role }}</strong>.
+      今天您的角色是 <strong>Player {{ player.role }}</strong>.
+        <!-- Today you are a <strong>Player {{ player.role }}</strong>. -->
     </p>
 
     <p>
@@ -28,16 +31,24 @@
     </p>
 
     <p>
-        Please read the instruction sheet carefully.
+      這個實驗的主要部分為50回合的決策任務，每個回合都是是獨立的。
+        <!-- Please read the instruction sheet carefully. -->
     </p>
 
     <p>
-        {% if player.role == "R" %}
+      {% if player.role == "R" %}
+      <!-- As a Player R, your job is to name the color of the bucket, <em>Silver</em> or <em>Gold</em>. -->
+      擔任 Player R 的角色之任務是在每回合猜被隨機選中的桶子是<b>金色</b>還是<b>銀色</b>。
+      在您做決定之前會先觀察到<b>S</b>的行動。<b>S</b>會說他抽到了銀球或是保持沉默。您的每回合報酬將如下決定。
+      <!-- Before making your decision, you will observe Player <em>S</em>’s action. Player <em>S</em> either reports
+      you that he or she has drawn a <em>Silver</em> ball or remains silent. Your payoff in each round is
+      determined as follows. -->
+        <!-- {% if player.role == "R" %}
         As a Player R, your job is to name the color of the bucket, <i>Silver</i> or <i>Gold</i>.
 
         Before making your decision, you will observe Player S’s action. Player S either reports
         you that he or she has drawn a <i>Silver</i> ball or remains silent. Your payoff in each round is
-        determined as follows.
+        determined as follows. -->
 
         <ol>
             <li>

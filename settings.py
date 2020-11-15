@@ -6,7 +6,7 @@ from os import environ
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=0.10, participation_fee=0.00, doc=""
+    real_world_currency_per_point=3, participation_fee=150, doc=""
 )
 
 
@@ -57,5 +57,3 @@ Welcome!
 SECRET_KEY = '9g!-yrk!f3o%=%^cp=f#bl6qsoct$=6+nms@3d&t5djgro5v2$'
 
 INSTALLED_APPS = ['otree']
-
-

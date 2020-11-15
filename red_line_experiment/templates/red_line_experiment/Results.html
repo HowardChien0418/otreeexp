@@ -2,34 +2,35 @@
 {% load otree %}
 
 {% block title %}
-    Round {{ subsession.round_number }}: Results
+    第 {{ subsession.round_number }}回合: 結果
 {% endblock %}
 
 {% block content %}
 
     {% if player.is_player_s %}
         <p>
-            Player R chose {{ bucket_guessed }}
+            Player R 選擇 {{ bucket_guessed }}
         </p>
     {% endif %}
 
     <p>
-        The bucket is {{ bucket_type }}
+        桶子的顏色為 {{ bucket_type }}
     </p>
 
     <p>
-        Your payoff of this round is {{ player.payoff }}
+        你這回合的報酬為 {{ player.payoff }}
+        <!-- Your payoff of this round is {{ player.payoff }} -->
     </p>
 
     <p>
         {% if player.round_number < Constants.num_rounds %}
-            Press <strong>Next</strong> to proceed to the next round.
+            請按下 <strong>Next</strong> 鍵進行到下一回合.
         {% else %}
-            Press <strong>Next</strong> to proceed to the lottery choice task.
+            請按下 <strong>Next</strong> 鍵進入樂透選擇任務。
+            <!-- Press <strong>Next</strong> to proceed to the lottery choice task. -->
         {% endif %}
     </p>
 
     {% next_button %}
 
 {% endblock %}
-

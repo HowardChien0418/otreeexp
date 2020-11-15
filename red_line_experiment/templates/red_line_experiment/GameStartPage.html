@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block title %}
-    Round {{ subsession.round_number }}: Start Page
+    第 {{ subsession.round_number }}回合: Start Page
 {% endblock %}
 
 {% block content %}
@@ -24,24 +24,29 @@
     <div class="col-xl-12 col-lg-12 mb-3">
         <div class="card">
             <h4 class="card-header">
-                Task description
+                任務描述
             </h4>
             <div class="card-body">
                 <p>
-                    In this decision-making task, there are two buckets.<br />
+                    在這此決策任務中，有兩個桶子。
+                    <!-- In this decision-making task, there are two buckets.<br /> -->
 
                     {% if player.is_player_s %}
-                    As a <strong>Player S</strong>, your job is to draw a ball from the chosen bucket.<br />
+                    擔任<strong>S</strong>的角色之任務是在每回合從被選中的桶子中抽出一顆球。<br />
+                    <!-- As a <strong>Player S</strong>, your job is to draw a ball from the chosen bucket.<br /> -->
 
-                        If the ball you drew is Silver, you need to decide whether to report Silver to Player R.<br />
-
-                        If the ball you drew is Gold, you don’t need to do further action in this round.<br />
+                        <!-- If the ball you drew is Silver, you need to decide whether to report Silver to Player R.<br /> -->
+                        如果抽到銀球，您必須決定是否向R說球的顏色，或是選擇保持沉默。<br />
+                        <!-- If the ball you drew is Gold, you don’t need to do further action in this round.<br /> -->
+                        如果球是金色的，您就不需要再做任何行動。<br />
                     {% else %}
-                    As a <strong>Player R</strong>, your job is to name the color of the bucket, Silver or Gold.<br />
+                    擔任<strong>R</strong>的角色之任務是在每回合猜被隨機選中的桶子是金色還是銀色。<br />
+                    <!-- As a <strong>Player R</strong>, your job is to name the color of the bucket, Silver or Gold.<br /> -->
+                    在您做決定之前會先觀察到S的行動。<br/>
+                    S會說他抽到了銀球或是保持沉默。<br/>
+                        <!-- Before making your decision, you will observe Player S’s action.<br /> -->
 
-                        Before making your decision, you will observe Player S’s action.<br />
-
-                        Player S either reports you that he or she has drawn a Silver ball or remains silent.<br />
+                        <!-- Player S either reports you that he or she has drawn a Silver ball or remains silent.<br /> -->
                     {% endif %}
                 </p>
             </div>
@@ -71,21 +76,21 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Probability:</td>
+                        <td>出現機率:</td>
                         <td class="text-center">{{ golden_bucket_probability }}</td>
-                        <td>Probability:</td>
+                        <td>出現機率:</td>
                         <td class="text-center">{{ silver_bucket_probability }}</td>
                     </tr>
                     <tr>
-                        <td>Number of <strong>Golden</strong> balls:</td>
+                        <td><b>金球</b>數目:</td>
                         <td class="text-center">{{ Constants.golden_balls_golden_bucket }}</td>
-                        <td>Number of <strong>Golden</strong> balls:</td>
+                        <td><b>金球</b>數目:</td>
                         <td class="text-center">{{ Constants.golden_balls_silver_bucket }}</td>
                     </tr>
                     <tr>
-                        <td>Number of <strong>Silver</strong> balls:</td>
+                        <td><strong>銀球</strong>數目 :</td>
                         <td class="text-center">{{ silver_balls_golden_bucket }}</td>
-                        <td>Number of <strong>Silver</strong> balls:</td>
+                        <td><strong>銀球</strong>數目:</td>
                         <td class="text-center">{{ silver_balls_silver_bucket }}</td>
                     </tr>
                 </table>

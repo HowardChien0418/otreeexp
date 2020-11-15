@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block title %}
-    Round {{ subsession.round_number }}: Draw a Ball
+    第 {{ subsession.round_number }}回合: Draw a Ball 抽取球！
 {% endblock %}
 
 {% block scripts %}
@@ -35,26 +35,38 @@
 {% block content %}
 
     <p>
-        Press the button below to draw a ball from the chosen bucket.
+        <!-- Press the button below to draw a ball from the chosen bucket. -->
+        請按下下方按鈕，在桶子中抽取一顆球。
     </p>
     <p id="selectBall">
-        <button type="button" onclick="bucket_button_clicked()">Draw a ball</button>
+        <button type="button" onclick="bucket_button_clicked()">抽球</button>
     </p>
 
     <p id="ball_result" class="action mt-3">
-        You got a <strong>{{ ball_type }}</strong> ball!
+        {% if group.ball_is_gold %}
+
+            你抽到了<strong>金球</strong>！
+          <!-- You got a <strong>{{ ball_type }}</strong> ball! -->
+
+        {% else %}
+
+            你抽到了<strong>銀球</strong>！
+
+        {% endif %}
     </p>
 
     <div id="ball_action" class="action">
         {% if group.ball_is_gold %}
             <p>
-                You don’t need to report the color to Player R, press <strong>Next</strong> to proceed.
+                你不需要向R回報球的顏色，請按下<strong>Next</strong>鍵繼續。
+                <!-- You don’t need to report the color to Player R, press <strong>Next</strong> to proceed. -->
             </p>
 
             {% next_button %}
         {% else %}
             <p>
-                Do you want to report the color of the ball to Player R?
+                你想要向R回報球的顏色嗎？
+                <!-- Do you want to report the color of the ball to Player R? -->
             </p>
 
             <div>

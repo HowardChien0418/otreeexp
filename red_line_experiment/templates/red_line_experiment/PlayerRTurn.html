@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block title %}
-    Round {{ subsession.round_number }}: Guess the Bucket
+    第 {{ subsession.round_number }}回合: Guess the Bucket 猜桶子顏色！
 {% endblock %}
 
 <!-- {% include Constants.timer_template %} -->
@@ -22,19 +22,19 @@
 
     <p>
         {% if group.player_s_reported %}
-            Player S drew a Silver ball.
+            Player S 抽取到銀球.
         {% else %}
-            Player S didn’t report the color of the ball to you.
+            Player S 並未向你回報球的顏色.
         {% endif %}
     </p>
 
     <p class="mt-3">
-        Which bucket do you want to choose?
+        請問你想選哪個桶子呢？
     </p>
 
     <div>
-        <button name="bucket_guessed_gold" value="True" class="btn btn-primary btn-large">Gold</button>
-        <button name="bucket_guessed_gold" value="False" class="btn btn-primary btn-large">Silver</button>
+        <button name="bucket_guessed_gold" value="True" class="btn btn-primary btn-large">金桶</button>
+        <button name="bucket_guessed_gold" value="False" class="btn btn-primary btn-large">銀桶</button>
     </div>
 
     {% include Constants.bucket_ball_template %}
