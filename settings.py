@@ -16,8 +16,8 @@ SESSION_CONFIGS = [
         name='red_line_experiment_old',
         display_name='Red Line Experiment Old',
         num_demo_participants=4,
-        participation_fee=5.00,
-        real_world_currency_per_point=0.10,
+        participation_fee=150.00,
+        real_world_currency_per_point=3,
         app_sequence=[
             'red_line_instruction_questionnaire',
             'red_line_experiment',
@@ -33,7 +33,7 @@ SESSION_CONFIGS = [
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'TWD'
 USE_POINTS = True
 
 ROOMS = [

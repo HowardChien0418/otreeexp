@@ -5,12 +5,20 @@
     Results
 {% endblock %}
 
+{% block styles %}
+    <style>
+        .debug-info{
+          display:none;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 
     <p>
-        <strong>Congratulations!</strong> You have completed the experiment.
-        Your reward today is {{ participant.payoff_plus_participation_fee }}.
-        We sincerely thank you for your participation.
+        <strong>恭喜！</strong> 您已經完成本場實驗.
+        今日的報酬為 {{ participant.payoff_plus_participation_fee }}元。
+        感謝您今天的參與！
     </p>
 
     <div class="row justify-content-center">
@@ -20,22 +28,22 @@
                     <tr>
                         <th></th>
                         <th>Points</th>
-                        <th>USD</th>
+                        <th>新台幣</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Participation fee</td>
+                        <td>參加費</td>
                         <td>-</td>
                         <td>{{ session.config.participation_fee }}</td>
                     </tr>
                     <tr>
-                        <td>Payoff of a random round</td>
+                        <td>隨機回合的報酬</td>
                         <td>{{ participant.vars.experiment_payoff }}</td>
                         <td>{{ experiment_payoff_usd }}</td>
                     </tr>
                     <tr>
-                        <td>Lottery result</td>
+                        <td>樂透結果</td>
                         <td>{{ participant.vars.lottery_payoff }}</td>
                         <td>{{ lottery_payoff_usd }}</td>
                     </tr>

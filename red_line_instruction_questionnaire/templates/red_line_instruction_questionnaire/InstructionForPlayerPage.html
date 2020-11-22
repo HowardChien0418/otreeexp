@@ -1,180 +1,60 @@
-{% extends "global/Page.html" %}
-{% load otree static %}
-
-{% block styles %}
-    <style>
-        .red {
-            color: red;
-        }
-        .blue {
-            color: blue;
-        }
-        .gold {
-            background: #fce7b6;
-        }
-        .silver {
-            background: #d1d0cd;
-        }
-        .darksilver {
-            background: #9e9d9b;
-        }
-        .selected_bucket{
-         writing-mode: vertical-rl;
-        }
-    </style>
-{% endblock %}
-
-{% block title %}
-    實驗說明 -
-    Player
-    {% if player.role == 'S' %}
-        S
-    {% else %}
-        R
-    {% endif %}
-    
-
-{% endblock %}
-
-{% block content %}
-
-    <p>
-        在本實驗，每一位參與者會被指派擔任<b>S</b>或<b>R</b>的角色。
-        <!-- In this experiment each participant will be assigned to one of two roles: S or R. -->
-    </p>
-
-    <p>
-        今天您的角色是 <strong>Player {{ player.role }}</strong>.
-    </p>
-
-    <p>
-        這個實驗的主要部分為50回合的決策任務，每個回合都是是獨立的。
-        <!-- You will play this role for 50 rounds, and each round is a separate decision task. -->
-    </p>
-
-    <p>
-      請仔細閱讀實驗說明
-      <!-- Please read the instruction sheet carefully. -->
-    </p>
-
-    <p>
-        {% if player.role == "R" %}
-        <!-- As a Player R, your job is to name the color of the bucket, <em>Silver</em> or <em>Gold</em>. -->
-        擔任 Player R 的角色之任務是在每回合猜被隨機選中的桶子是<b>金色</b>還是<b>銀色</b>。
-        在您做決定之前會先觀察到<b>S</b>的行動。<b>S</b>會說他抽到了銀球或是保持沉默。您的每回合報酬將如下決定。
-        <!-- Before making your decision, you will observe Player <em>S</em>’s action. Player <em>S</em> either reports
-        you that he or she has drawn a <em>Silver</em> ball or remains silent. Your payoff in each round is
-        determined as follows. -->
-
-        <ol>
-            <li>
-              如果您猜桶子是<b>銀色</b>，而桶子是<b>銀色</b>，您的報酬將會是在<span class="blue">[30 至 70] 或是 [10 至 90]</span>間的一個數值
-                <!-- If you choose <em>Silver</em> and the color of the bucket is <em>Silver</em>, you will receive a
-                payoff that is randomly drawn from the interval <span class="blue">[30 and 70] or [10 and 90]</span> at the beginning of each round. -->
-            </li>
-            <li>
-              區間每回合不同，而這個數值在回合一開始決定。R知道具體數值但S只知道是哪個區間。
-                <!-- You will know the exact value, but Player <em>S</em> only knows that the value is randomly
-                drawn from the interval, and every value within the interval is equally likely to be
-                drawn. -->
-            </li>
-            <li>
-                如果您猜桶子是<b>金色</b>而桶子真的是<b>金色</b>，您將會得到<span class="blue">50</span>點。
-                <!-- If you choose <em>Gold</em> and the color of the bucket is <em>Gold</em>, you will receive a
-                payoff of <span class="blue">50</span>. -->
-            </li>
-            <li>
-                如果您猜錯桶子的顏色，在該回合您將取得<span class="blue">0</span>點
-                <!-- If you choose the wrong color of the bucket, you will receive a payoff of <span class="blue">0</span>. -->
-            </li>
-            <li>
-                如果您猜對了桶子的顏色，在該回合S將取得20點或30點
-                <span class="red">
-                    {{group.v}}點。
-                </span>
-                <!-- If you choose the color of the bucket correctly, Player <em>S</em> will receive a payoff of
-                <span class="red">
-                    {{group.v}}.
-                </span> -->
-            </li>
-            <li>
-                如果您猜錯桶子的顏色，<b>S</b>將取得<span class="red">0</span>點。
-                <!-- If you choose the wrong color of the bucket, Player <em>S</em> will receive a payoff of <span class="red">0</span>. -->
-            </li>
-            <li>
-              如果<em>S</em>向您說球是<b>銀色</b>的，但您猜桶子的顏色是<b>金色</b>，<b>S</b>在這個回合的報酬將會被扣<span class="red">{{group.x}}</span>點。
-                <!-- If Player <em>S</em> reports <em>Silver</em> to you but you decide to choose <em>Gold</em>,
-                <span class="red">{{group.x}}</span> points will be deducted from his or her payoff. -->
-            </li>
-        </ol>
-        {% else %}
-        擔任<b>S</b>的角色之任務是在每回合從被選中的桶子中抽出一顆球。如果抽到<b>銀球</b>，您必須決定是否向<b>R</b>說
-        球的顏色，或是選擇保持沉默。如果球是<b>金色</b>的，您就不需要再做任何行動。
-        <!-- As a Player <em>S</em>, your job is to draw a ball from the chosen bucket and, if the ball you draw is
-        <em>Silver</em>, decide whether to report <em>Silver</em> to Player <em>S</em>. If the ball you draw is
-        <em>Gold</em>, you don’t need to do further action in this round. -->
-        您的每回合報酬由您與<b>R</b>的決策所共同決定。
-        <!-- Your payoff in each round is determined jointly by your and Player <em>R</em>’s action. -->
-        <ol>
-            <li>
-                如果<b>R</b>選對了桶子的顏色，您將會得到<span class="red">{{group.v}}</span>點。
-                <!-- If Player <em>R</em> chooses the color of the bucket correctly, you will receive a payoff of
-                <span class="red">{{group.v}}</span>. -->
-            </li>
-            <li>
-                如果R選錯了桶子的顏色，您將會得到<span class="red">0</span>點。
-                <!-- If Player <em>R</em> chooses the wrong color of the bucket, you will receive a payoff of <span class="red">0</span>. -->
-            </li>
-            <li>
-                如果您向<b>R</b>說球是<b>銀色</b>的，但<b>R</b>猜桶子的顏色是<b>金色</b>，您在這個回合的報酬將會被扣<span class="red">{{group.x}}</span>點
-                <!-- If you report <em>Silver</em> but Player <em>R</em> chooses <em>Gold</em>, <span class="red">{{group.x}}</span>
-                points will be deducted from your payoff. -->
-            </li>
-            <li>
-                如果<b>R</b>猜桶子是<b>金色</b>而桶子真的是<b>金色</b>，他將會得到<span class="blue">50</span>點。
-                <!-- If Player <em>R</em> chooses <em>Gold</em> and the color of the bucket is <em>Gold</em>, he or she will receive
-                a payoff <span class="blue">50</span>. -->
-            </li>
-            <li>
-                如果<b>R</b>選錯了桶子的顏色，他將會得到<span class="blue">0</span>點。
-                <!-- If Player <em>R</em> chooses the wrong color of the bucket, he or she will receive a payoff <span class="blue">0</span>. -->
-            </li>
-            <li>
-                如果<b>R</b>猜桶子是<b>銀色</b>而桶子真的是<b>銀色</b>，他的報酬將會是在<span class="blue">[10 至 90] 或是 [30 至 70]</span>
-                間的一個數值。 (每回合不同，<b>R</b>知道具體數值但S只知道是哪個區間)。
-                <!-- If Player <em>R</em> chooses <em>Silver</em> and the color of the bucket is <em>Silver</em>, he or she will receive
-                a payoff that could be any number randomly drawn between <span class="blue">[10 and 90] or [30 and 70]</span> at the beginning of each round. -->
-            </li>
-        </ol>
-        {% endif %}
-    </p>
-
-    <p>
-        {% if player.role == "R" %}
-        您和<b>S</b>的報酬如下表:
-        <!-- Your and Player S’s payoffs are summarized as below. -->
-        {% else %}
-        您和<b>R</b>的報酬如下表:
-        <!-- Your and Player R’s payoffs are summarized as below. -->
-        {% endif %}
-    </p>
-
-    {% include Constants.payoff_template_instructions_new %}
-
-    <p>
-        <!-- 注意:本表將會表示在每一回合的螢幕上。 -->
-        <strong>注意:</strong><i> 本表將會表示在每一回合的螢幕上。
-        <!-- <strong>Note:</strong><i> the payoff matrices for each round will be displayed on the screens for the paired participants. -->
-    </i>
-    </p>
-
-    <p>
-      為了確保您完全了解這個實驗，請在電腦上完成實驗前問卷後，方能開始進行任務。
-      <!-- After reading the instruction, press <strong>Next</strong> to proceed to the control questionnaire. -->
-    </p>
-
-    {% formfields %}
-
-    {% next_button %}
-
-{% endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px 'Songti TC'; color: #000000; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px 'Songti TC'; color: #000000; -webkit-text-stroke: #000000}
+    p.p5 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 12.0px}
+    li.li4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px 'Songti TC'; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px 'Songti TC'; font-kerning: none}
+    span.s3 {font: 12.0px Times; font-kerning: none}
+    span.s4 {font: 12.0px Times; -webkit-text-stroke: 0px #000000}
+    span.s5 {font: 12.0px Times; font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #0000ff}
+    span.s6 {font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #0000ff}
+    span.s7 {font: 12.0px Times; font-kerning: none; color: #fb0007; -webkit-text-stroke: 0px #fb0007}
+    span.s8 {font-kerning: none; color: #fb0007; -webkit-text-stroke: 0px #fb0007}
+    ol.ol1 {list-style-type: decimal}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">{% extends "global/Page.html" %} {% load otree static %} {% block styles %} {% endblock %} {% block title %} </span><span class="s2">實驗說明</span><span class="s1"> - Player {% if player.role == 'S' %} S {% else %} R {% endif %} {% endblock %} {% block content %}</span></p>
+<p class="p2"><span class="s1">在本實驗，每一位參與者會被指派擔任</span><span class="s3"><b>S</b></span><span class="s1">或</span><span class="s3"><b>R</b></span><span class="s1">的角色。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2">今天您的角色是</span><span class="s1"> <b>Player {{ player.role }}</b>.<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1">這個實驗的主要部分為</span><span class="s3">50</span><span class="s1">回合的決策任務，每個回合都是是獨立的。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1">請仔細閱讀實驗說明</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s3">{% if player.role == "R" %} </span><span class="s1">擔任</span><span class="s3"> Player R </span><span class="s1">的角色之任務是在每回合猜被隨機選中的桶子是<b>金色</b>還是<b>銀色</b>。</span><span class="s3"> </span><span class="s1">在您做決定之前會先觀察到</span><span class="s3"><b>S</b></span><span class="s1">的行動。</span><span class="s3"><b>S</b></span><span class="s1">會說他抽到了銀球或是保持沉默。您的每回合報酬將如下決定。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<ol class="ol1">
+  <li class="li4"><span class="s4"></span><span class="s1">如果您猜桶子是<b>銀色</b>，而桶子是<b>銀色</b>，您的報酬將會是在</span><span class="s5">[30 </span><span class="s6">至</span><span class="s5"> 70] </span><span class="s6">或是</span><span class="s5"> [10 </span><span class="s6">至</span><span class="s5"> 90]</span><span class="s1">間的一個數值</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">每回合的區間可能不同，這個數值在回合一開始決定。</span><span class="s3">R</span><span class="s1">知道具體數值但</span><span class="s3">S</span><span class="s1">只知道是哪個區間。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果您猜桶子是<b>金色</b>而桶子真的是<b>金色</b>，您將會得到</span><span class="s5">50</span><span class="s1">點。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果您猜錯桶子的顏色，在該回合您將取得</span><span class="s5">0</span><span class="s1">點</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果您猜對了桶子的顏色，在該回合</span><span class="s3">S</span><span class="s1">將取得</span><span class="s3"> </span><span class="s7">{{group.v}}</span><span class="s8">點。</span><span class="s7"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果您猜錯桶子的顏色，</span><span class="s3"><b>S</b></span><span class="s1">將取得</span><span class="s7">0</span><span class="s1">點。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果</span><span class="s3"><i>S</i></span><span class="s1">向您說球是<b>銀色</b>的，但您猜桶子的顏色是<b>金色</b>，</span><span class="s3"><b>S</b></span><span class="s1">在這個回合的報酬將會被扣</span><span class="s7">{{group.x}}</span><span class="s1">點。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+</ol>
+<p class="p4"><span class="s3">{% else %} </span><span class="s1">擔任</span><span class="s3"><b>S</b></span><span class="s1">的角色之任務是在每回合從被隨機選中的桶子中抽出一顆球。如果抽到<b>銀球</b>，您必須決定是否向</span><span class="s3"><b>R</b></span><span class="s1">說球的顏色，或是選擇保持沉默。如果球是<b>金色</b>的，您就不需要再做任何行動。</span><span class="s3"> </span><span class="s1">您的每回合報酬由您與</span><span class="s3"><b>R</b></span><span class="s1">的決策所共同決定。</span></p>
+<ol class="ol1">
+  <li class="li4"><span class="s4"></span><span class="s1">如果</span><span class="s3"><b>R</b></span><span class="s1">選對了桶子的顏色，您將會得到</span><span class="s7">{{group.v}}</span><span class="s1">點。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果</span><span class="s3">R</span><span class="s1">選錯了桶子的顏色，您將會得到</span><span class="s7">0</span><span class="s1">點。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果您向</span><span class="s3"><b>R</b></span><span class="s1">說球是<b>銀色</b>的，但</span><span class="s3"><b>R</b></span><span class="s1">猜桶子的顏色是<b>金色</b>，您在這個回合的報酬將會被扣</span><span class="s7">{{group.x}}</span><span class="s1">點</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果</span><span class="s3"><b>R</b></span><span class="s1">猜桶子是<b>金色</b>而桶子真的是<b>金色</b>，他將會得到</span><span class="s5">50</span><span class="s1">點。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果</span><span class="s3"><b>R</b></span><span class="s1">選錯了桶子的顏色，他將會得到</span><span class="s5">0</span><span class="s1">點。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+  <li class="li4"><span class="s4"></span><span class="s1">如果</span><span class="s3"><b>R</b></span><span class="s1">猜桶子是<b>銀色</b>而桶子真的是<b>銀色</b>，他的報酬將會是在</span><span class="s5">[10 </span><span class="s6">至</span><span class="s5"> 90] </span><span class="s6">或是</span><span class="s5"> [30 </span><span class="s6">至</span><span class="s5"> 70]</span><span class="s3"> </span><span class="s1">間的一個數值。</span><span class="s3"> (</span><span class="s1">每回合區間可能不同，</span><span class="s3"><b>R</b></span><span class="s1">知道具體數值但</span><span class="s3">S</span><span class="s1">只知道是哪個區間</span><span class="s3">)</span><span class="s1">。</span><span class="s3"><span class="Apple-converted-space"> </span></span></li>
+</ol>
+<p class="p1"><span class="s1">{% endif %}</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1">{% if player.role == "R" %} </span><span class="s2">您和</span><span class="s1"><b>S</b></span><span class="s2">的報酬如下表</span><span class="s1">: {% else %} </span><span class="s2">您和</span><span class="s1"><b>R</b></span><span class="s2">的報酬如下表</span><span class="s1">: {% endif %}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{% include Constants.payoff_template_instructions_new %}</span></p>
+<p class="p2"><span class="s1"><b>注意</b></span><span class="s3"><b>:</b><i> </i></span><span class="s1">本表將會表示在每一回合的螢幕上。</span><span class="s3"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p2"><span class="s1">為了確保您完全了解這個實驗，請在電腦上完成實驗前問卷後，方能開始進行任務。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{% formfields %} {% next_button %} {% endblock %}<span class="Apple-converted-space"> </span></span></p>
+</body>
+</html>

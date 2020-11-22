@@ -5,9 +5,8 @@ from ._builtin import Page
 
 class GeneralSurvey(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender', 'nationality', 'race', 'is_student']
-
-
+    form_fields = ['age', 'gender', 'nationality',  'is_student']
+    
 class BackgroundSurvey(Page):
     form_model = 'player'
 

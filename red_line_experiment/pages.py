@@ -4,14 +4,14 @@ from .models import Constants
 
 
 class GroupArrivedPlayersPage(WaitPage):
-    body_text = "Wait for another participant..."
+    body_text = "稍待另一位玩家..."
 
     def is_displayed(self) -> bool:
         return self.round_number == 1
 
 
 class SetupRoundParametersPage(WaitPage):
-    body_text = "Wait for another participant..."
+    body_text = "稍待另一位玩家..."
     after_all_players_arrive = 'set_round_params'
 
 
@@ -24,7 +24,7 @@ class GameStartPage(Page):
 
 
 class GameStartWaitPage(WaitPage):
-    body_text = "Wait for another participant..."
+    body_text = "稍待另一位玩家..."
 
 
 class PlayerSTurn(Page):
@@ -60,7 +60,7 @@ class WaitPlayerS(WaitPage):
     def vars_for_template(self) -> dict:
         return dict(
             title_text=f"Round {self.round_number}: Please wait",
-            body_text="Wait while Player S is making a decision..."
+            body_text="稍待 Player S 做決策..."
         )
 
 
@@ -70,7 +70,7 @@ class WaitPlayerR(WaitPage):
     def vars_for_template(self) -> dict:
         return dict(
             title_text=f"Round {self.round_number}: Please wait",
-            body_text="Wait while Player R is making a decision..."
+            body_text="Player R 正在做決策..."
         )
 
 

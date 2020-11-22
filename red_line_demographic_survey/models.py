@@ -32,32 +32,32 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # General
     age = models.IntegerField(min=18, max=65,
-                              label="What is your age?")
+                              label="年齡")
     gender = models.StringField(widget=widgets.RadioSelect,
-                                label="What is your gender?",
-                                choices=['Female', 'Male', 'Other', 'Prefer not to respond'])
-    nationality = models.StringField(label="What is your nationality?")
+                                label="性別",
+                                choices=['女', '男', '其他', '傾向不告知'])
+    nationality = models.StringField(label="國籍")
     race = models.StringField(widget=widgets.RadioSelect,
                               label="What is your race?",
                               choices=['White', 'Asian', 'Black/African', 'Other', 'Prefer not to respond'])
 
     # Education & Occupation
     is_student = models.BooleanField(widget=widgets.RadioSelect,
-                                     label="Are you a student?")
-    student_semesters = models.IntegerField(min=0, max=10,
-                                            label="How many semesters did you study so far in total?")
-    student_program = models.StringField(label="What do you study (program/course)?")
+                                     label="您是學生嗎")
+    student_semesters = models.IntegerField(min=0, max=18,
+                                            label="請問您目前共修習多少學期的課程？")
+    student_program = models.StringField(label="請問您的主修科系為？")
     highest_degree = models.StringField(widget=widgets.RadioSelect,
-                                        label="What is your highest educational degree?",
-                                        choices=['High School Diploma or equivalent', 'Bachelor', 'Master', 'PhD'])
-    current_occupation = models.StringField(label="What is your current occupation?")
+                                        label="請問您的最高學歷為",
+                                        choices=['高中或等同高中學歷', '學士', '碩士', 'PhD'])
+    current_occupation = models.StringField(label="請問您目前的職業是？")
 
     # Experiment
     similar_experiment_before = models.BooleanField(widget=widgets.RadioSelect,
-                                                    label="Have you been part of a similar experiment before?")
+                                                    label="請問您曾經參加過類似的實驗嗎？")
     find_instructions_clear = models.StringField(widget=widgets.RadioSelectHorizontal,
-                                                 label="Do you find the experiment instruction clear?",
-                                                 choices=['Strongly disagree', 'Disagree', 'Neutral',
-                                                          'Agree', 'Strongly agree'])
-    comments = models.LongStringField(label="Comments about this experiment",
+                                                 label="請問您認為實驗說明夠詳細嗎？",
+                                                 choices=['非常不同意', '不同意', '沒意見',
+                                                          '同意', '非常同意'])
+    comments = models.LongStringField(label="對此實驗，歡迎留下任何建議",
                                       blank=True)

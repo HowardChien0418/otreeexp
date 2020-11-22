@@ -5,6 +5,14 @@
     第 {{ subsession.round_number }}回合: 結果
 {% endblock %}
 
+{% block styles %}
+    <style>
+        .debug-info{
+          display:none;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 
     {% if player.is_player_s %}
