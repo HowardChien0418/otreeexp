@@ -1,45 +1,123 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1671.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px 'Songti TC'; color: #000000; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px 'Songti TC'; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p4 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px 'Songti TC'; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p5 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 12.0px}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px 'Songti TC'; font-kerning: none}
-    span.s3 {font: 12.0px Times; font-kerning: none}
-    span.s4 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s5 {font: 12.0px Times; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">{% extends "global/Page.html" %} {% load otree static %} {% block styles %} {% endblock %} {% block title %} </span><span class="s2">歡迎來到本實驗！！</span><span class="s1"> {% endblock %} {% block content %}</span></p>
-<p class="p2"><span class="s1">謝謝您參與這個關於決策的實驗</span><span class="s3">!</span><span class="s1">參與這個實驗您將會獲得現金報酬，而報酬的多寡將取決於您以及其他參與者在實驗中的決策。我們將會私下支付這個款項給您，所以其他參與者不會知道其金額。</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>請仔細閱讀本說明，在實驗過程中您也能查看這個說明。如果有不清楚的部分，請舉手、小聲發問，工作人員將會私下為您解說。</span></p>
-<p class="p2"><span class="s1">關於報酬：</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">您的總報酬會包含150元的參加費，加上您在主要實驗部分（50回合的獨立決策）中表現，以及最後的樂透選擇任務</span><span class="s3">(lottery choice task)</span><span class="s1">報酬。關於決策表現的報酬，我們將會從中選一個回合來計算您的報酬，您在每個回合中會取得點數(points)，您的報酬將以被選中的那個回合的點數以「每</span><span class="s3">10</span><span class="s1">點兌換新台幣</span><span class="s3">30</span><span class="s1">元」的方式計算，也就是說，您在被選中的那回合所得到的總點數乘以</span><span class="s3">3</span><span class="s1">再四捨五入，就會是新台幣報酬。每個回合被選中的機率是一樣的。另外，樂透選擇任務</span><span class="s3">(lottery choice task)</span><span class="s1">中，您將做</span><span class="s3">10</span><span class="s1">個選擇，而我們將隨機實現其中一個選擇。您將會得到點數，而這個點數也一樣會以每</span><span class="s3">10</span><span class="s1">點換</span><span class="s3">30</span><span class="s1">元新台幣的方式計入您最後的報酬之中。</span></p>
-<p class="p2"><span class="s1">關於角色：</span></p>
-<p class="p2"><span class="s1">在本實驗，每一位參與者會被指派擔任</span><span class="s3"><b>S</b></span><span class="s1">或</span><span class="s3"><b>R</b></span><span class="s1">的角色。各角色的任務說明請參照本說明的下一個部分。</span><span class="s3"> </span><span class="s1">在整個實驗過程中，您將持續擔任被指派的角色，而在實驗過程中，您會得到這個角色專屬的資訊。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">在實驗前，您將會與擔任另一角色的參與者配對，也就是說，受試者們將會兩人一組，一人擔任</span><span class="s3"><b>S</b> </span><span class="s1">、另一人擔任</span><span class="s3"><b>R</b></span><span class="s1"><b>，並以此組合</b>完成50回合的決策，也就是整個實驗。你們不會知道彼此的真實身份。你們在每回合的報酬將取決於您自己</span><span class="s3"> </span><span class="s1">，以及與您同組的參與者於該回合所做之決策。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">關於主要實驗內容：</span></p>
-<p class="p3"><span class="s4">這個實驗有兩個桶子，分別是金色與銀色的。桶子裡各有</span><span class="s5">20</span><span class="s4">顆<b>金色</b>或<b>銀色</b>的球。</span><span class="s5"> </span><span class="s1">在銀色桶子中，</span><span class="s3"> </span><span class="s1">有</span><span class="s3">12</span><span class="s1">顆銀球與</span><span class="s3">8</span><span class="s1">顆金球。在金色桶子中，有</span><span class="s3">6</span><span class="s1">顆銀球和</span><span class="s3">14</span><span class="s1">顆金球。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">在每個回合一開始，會有一個桶子被隨機選中，參與者雙方都不會知道桶子的顏色。</span><span class="s3"><br>
-{% if group.sequence == 1 %}<span class="Apple-converted-space"> </span></span></p>
-<p class="p3"><span class="s1">在前</span><span class="s3">20</span><span class="s1">回合，銀桶被選中的機率是</span><span class="s3">0.3</span><span class="s1">，而金桶被選中的機率是</span><span class="s3">0.7</span><span class="s1">。在接下來的</span><span class="s3">20</span><span class="s1">回合，銀桶和金桶被選中的機會是一半一半。在最後</span><span class="s3">10</span><span class="s1">回合，銀桶被選中的機率是</span><span class="s3">0.3</span><span class="s1">而金桶被選中的機率是</span><span class="s3">0.7</span><span class="s1">。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{% else %}</span></p>
-<p class="p4"><span class="s1">在前</span><span class="s3">20</span><span class="s1">回合，銀桶和金桶被選中的機會是一半一半。在接下來的</span><span class="s3">20</span><span class="s1">回合，銀桶被選中的機率是</span><span class="s3">0.3</span><span class="s1">而金桶被選中的機率是</span><span class="s3">0.7</span><span class="s1">。在最後</span><span class="s3">10</span><span class="s1">回合，銀桶和金桶被選中的機會是一半一半。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{% endif %}</span></p>
-<p class="p5"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">從被隨機選中的那個桶子中，擔任</span><span class="s3"><b>S</b></span><span class="s1">角色的參與者須抽一顆球，S會知道球的顏色。如果球是<b>金色</b>的，</span><span class="s3"><b>S</b></span><span class="s1">就不需要再做任何行動。如果抽到<b>銀球</b>，</span><span class="s3"><b>S</b></span><span class="s1">必須決定是否向</span><span class="s3"><b>R</b></span><span class="s1">說球的顏色，或是選擇保持沉默。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">擔任</span><span class="s3"><b>R</b></span><span class="s1">角色的參與者在觀察了</span><span class="s3"><b>S</b></span><span class="s1">的行動</span><span class="s3">(</span><span class="s1">說抽到了<b>銀球</b>或保持沉默</span><span class="s3">)</span><span class="s1">後，必須要猜桶子是<b>金色或銀色</b>的。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">在</span><span class="s3"><b>R</b></span><span class="s1">做完決策後，這個回合就結束了，兩位參與者將會看到這回合的報酬，並繼續完成共50回的實驗。主實驗之後您還須完成一個樂透選擇任務，最後我們將請您完成一份簡短問卷，填答完畢後您將得到最終報酬，我們將會私下發放報酬，整個過程預計將進行</span><span class="s3">70</span><span class="s1">分鐘。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{% next_button %} {% endblock %}<span class="Apple-converted-space"> </span></span></p>
-</body>
-</html>
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+        .debug-info{
+          display:none;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    歡迎來到本實驗！！
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        <!-- You are participating in an experiment on decision-making. You will be paid in cash for your
+        participation, and the exact amount you receive will be determined during the experiment
+        and will depend on your decisions and the decisions of others. You will be paid your earnings
+        privately so that no other participant will find out how much you earn. These earnings
+        will be paid to you at the end of the experiment along with the 5 USD participation payment. -->
+        謝謝您參與這個關於決策的實驗!參與這個實驗您將會獲得現金報酬，而報酬的多寡將取決於您以及其他參與者在實驗中的決策。我們將會私下支付這個款項給您，所以其他參與者不會知道其金額。除了取決於您的表現的報酬外，您還會另外拿到價值150元的參加費。
+    </p>
+
+    <p>
+        請仔細閱讀本說明，在實驗過程中您也能查看這個說明。如果有不清楚的部分，請舉手、小聲發問，工作人員將會私下為您解說。
+        <!-- Please read the following instruction carefully. You can check this instruction throughout
+        the experiment. If you have any questions, please raise your hand and the experimenter will
+        answer you privately. Please do not ask any questions aloud. -->
+    </p>
+
+
+    <H5>
+      關於報酬
+    </H5>
+
+    <p>
+      您的總報酬會包含150元的參加費，加上您在主要實驗部分（50回合的獨立決策）中表現，以及最後的樂透選擇任務(lottery choice task)報酬。<br>關於決策表現的報酬，我們將會從中選一個回合來計算您的報酬，您在每個回合中會取得點數(points)，您的報酬將以被選中的那個回合的點數以「每10點兌換新台幣30元」的方式計算，也就是說，您在被選中的那回合所得到的總點數乘以3再四捨五入，就會是新台幣報酬。每個回合被選中的機率是一樣的。<br>另外，樂透選擇任務(lottery choice task)中，您將做10個選擇，而我們將隨機實現其中一個選擇。您將會得到點數，而這個點數也一樣會以每10點換30元新台幣的方式計入您最後的報酬之中。
+    </p>
+
+    <H5>
+      關於角色
+    </H5>
+
+    在本實驗，每一位參與者會被指派擔任<b>S</b>或<b>R</b>的角色。各角色的任務說明請參照本說明的下一個部分。</span><span class="s3"> </span><span class="s1">在整個實驗過程中，您將持續擔任被指派的角色，而在實驗過程中，您會得到這個角色專屬的資訊。
+      <br>在實驗前，您將會與擔任另一角色的參與者配對，也就是說，受試者們將會兩人一組，一人擔任</span><span class="s3"><b>S</b> </span><span class="s1">、另一人擔任</span><span class="s3"><b>R</b></span><span class="s1"><b>，並以此組合</b>完成50回合的決策，也就是整個實驗。你們不會知道彼此的真實身份。你們在每回合的報酬將取決於您自己</span><span class="s3"> </span><span class="s1">，以及與您同組的參與者於該回合所做之決策。</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+
+    <H5>
+      關於主要實驗內容
+    </H5>
+
+    <p>
+        這個實驗有兩個桶子，分別是金色與銀色的。桶子裡各有20顆<b>金色</b>或<b>銀色</b>的球。
+        <span class="red">
+          在銀色桶子中， 有12顆銀球與8顆金球。在金色桶子中，有6顆銀球和14顆金球。
+        </span>
+        <!-- In this experiment, there are two buckets, <em>Gold</em> and <em>Silver</em>, each containing 20 balls of the
+        color of <em>Gold</em> and <em>Silver</em>.
+        <span class="red">
+            In the silver bucket, there are 12 silver balls and 8 golden balls. In the golden bucket,
+            there are 6 silver balls and 14 golden balls.
+        </span> -->
+    </p>
+
+    <p>
+        在每個回合一開始，會有一個桶子被選中。<br />
+        {% if group.sequence == 1 %}
+            <p class="red">在前20回合，銀桶被選中的機率是0.3，而金桶被選中的機率是0.7。在接下來的20回合，銀桶和金桶被選中的機會是一半一半。在最後10回合，銀桶被選中的機率是0.3而金桶被選中的機率是0.7。 </p>
+        {% else %}
+            <p class="blue">在前20回合，銀桶和金桶被選中的機會是一半一半。在接下來的20回合，銀桶被選中的機率是0.3而金桶被選中的機率是0.7。在最後10回合，銀桶和金桶被選中的機會是一半一半。 </p>
+        {% endif %}
+    </p>
+        <!-- In each round of the experiment, a bucket is randomly chosen.<br />
+        {% if group.sequence == 1 %}
+            <p class="red">In the first 20 rounds, the probability of having a silver bucket
+            is 0.3 and the probability of having a golden bucket is 0.7. In the following 20 rounds, the
+            probability of having a silver or golden bucket is 50-50. In the last 10 rounds, the probability
+            of having a silver bucket is 0.3 and the probability of having a golden bucket is 0.7. </p>
+        {% else %}
+            <p class="blue">In the first 20 rounds, the probability of having a silver or golden
+            bucket is 50-50. In the following 20 rounds, the probability of having a silver bucket is 0.3
+            and the probability of having a golden bucket is 0.7. In the last 10 rounds, the probability of
+            having a silver or golden bucket is 50-50. </p>
+        {% endif %} -->
+
+
+    <p>
+        從被隨機選中的那個桶子中，擔任<b>S</b>角色的參與者須抽一顆球。
+        <br>如果球是<b>金色</b>的，<b>S</b>就不需要再做任何行動；
+        <br>如果抽到<b>銀球</b>，<b>S</b>必須決定是否向<b>R</b>說球的顏色，或是選擇保持沉默。
+        <!-- From the chosen bucket, Player <em>S</em> will draw a ball. If the ball is <em>Gold</em>, <em>S</em> does
+        not need to do any further action. If the ball is <em>Silver</em>, <em>S</em> should choose
+        whether to report the color to Player <em>R</em>. -->
+    </p>
+
+    <p>
+        擔任<b>R</b>角色的參與者在觀察了<b>S</b>的行動(說抽到了<b>銀球</b>或保持沉默)後，必須要猜桶子是<b>金色或銀色</b>的。
+        <!-- After observing Player <em>S</em>’s action, either reporting <em>Silver</em> or remaining silent, Player <em>R</em>
+        needs to guess the color of the bucket, <em>Gold</em> and <em>Silver</em>. -->
+    </p>
+
+    <p>
+        在<b>R</b>做完決策後，這個回合就結束了，兩位參與者將會看到這回合的報酬，並繼續進行之後的49回合實驗(一共50回合)。之後您將須完成一個樂透選擇任務，在這個任務中，您將做10個選擇，而我們將隨機實現其中一個選擇。您將會得到點數，而這個點數也一樣會以每10點換30元新台幣的方式計入您最後的報酬之中。實驗最後我們將請您完成一份簡短問卷，填答完畢後您將得到最終報酬。我們預計整個過程將進行約70分鐘。
+        <!-- After Player <em>R</em>’s action, this round ends, both players will observe their payoffs of this
+        round, and continue playing for an extra 49 rounds (so overall 50 rounds). After these decision
+        tasks, you will complete a lottery choice task. You need to make 10 decisions, and one of
+        them will be realized. The points you earn will also be converted to cash at the rate of 1 USD
+        for every 10 points and included in your final payment. After completing a post-experiment
+        survey, you will receive the payment. The experiment will take approximately 70 minutes. -->
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

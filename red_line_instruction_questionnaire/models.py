@@ -93,7 +93,7 @@ class Group(BaseGroup):
             ("如果桶子是銀色的，您抽中了金球，R猜桶子的顏色是銀色，則R這回合的報酬為在[10和90]或是[30和70]間的一個數值。是或否?",True),
             # ("If the bucket is Silver, you draw a golden ball from the bucket, and Player R chooses "
             #     "Silver, Player R’s payoff of the round is a value randomly drawn from [30 and 70] or [10 and 90]. True or False?", True),
-            ("在實驗後，你將得到由以下部分構成的報酬:任意選出的決策回合之點數加上樂透選擇任務之中的一個決策得到之點數，以1:3的方式換算為新台幣，再加上參加費。是或否?",True)
+            ("在實驗後，你將得到由以下部分構成的報酬:(1)任意選出的決策回合之點數(2)樂透選擇任務之中的一個決策得到之點數，以一點換算三元新台幣的方式換算為現金再加上(3)參加費150元。是或否?",True)
             # ("After the experiment, you will receive a payment consisting of the payoff of a randomly picked "
             #  "decision-making round plus one of lottery choice outcomes divided by 10, and the participation "
             #  "fee. True or False?", True)
@@ -116,7 +116,7 @@ class Group(BaseGroup):
                 ("若桶子是銀色的，S保持沉默，而您猜了金色，S在這回合的報酬是0點。是或否?",True),
                 # ("If the bucket is Silver, Player S doesn't report the color of the ball he or she drawn to "
                 # "you, and you choose Gold, Player S’s payoff of the round is 0. True or False?", True),
-                ("在實驗後，你將得到由以下部分構成的報酬:任意選出的決策回合之點數加上樂透選擇任務之中的一個決策得到之點數，以1:3的方式換算為新台幣，再加上參加費。是或否?",True)
+                ("在實驗後，你將得到由以下部分構成的報酬:(1)任意選出的決策回合之點數(2)樂透選擇任務之中的一個決策得到之點數，以一點換算三元新台幣的方式換算為現金再加上(3)參加費150元。是或否?",True)
 				# ("After the experiment, you will receive a payment consisting of the payoff of a randomly picked "
     #             "decision-making round plus one of lottery choice outcomes divided by 10, and the participation "
     #             "fee. True or False?", True)
