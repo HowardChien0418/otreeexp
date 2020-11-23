@@ -14,7 +14,7 @@ SESSION_CONFIGS = [
 
     dict(
         name='red_line_experiment_old',
-        display_name='Red Line Experiment Old',
+        display_name='Red Line Experiment',
         num_demo_participants=4,
         participation_fee=150.00,
         real_world_currency_per_point=3,

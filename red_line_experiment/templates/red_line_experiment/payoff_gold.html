@@ -1,5 +1,13 @@
 {% load otree %}
 
+{% block styles %}
+    <style>
+        .clr {
+            color: #E74C3C;
+        }
+    </style>
+{% endblock %}
+
 <table class="table table-sm table-striped table-bordered text-center">
     <thead>
     <th colspan="2"></th>
@@ -12,15 +20,15 @@
         <td>銀色</td>
     </tr>
     <tr>
-        <th rowspan="2">Player S</th>
+        <th rowspan="2" style="color:#E74C3C">Player S</th>
         <td>沈默</td>
-        <td>{{ group.v }}, {{ Constants.w0 }}</td>
-        <td>0, 0</td>
+        <td><span class = "clr">{{ group.v }}</span>, {{ Constants.w0 }}</td>
+        <td><span class = "clr">0</span>, 0</td>
     </tr>
     <tr>
         <td>回報</td>
-        <td>{{ v_minus_x }}, {{ Constants.w0 }}</td>
-        <td>0, 0</td>
+        <td><span class = "clr">{{ v_minus_x }}</span>, {{ Constants.w0 }}</td>
+        <td><span class = "clr">0</span>, 0</td>
     </tr>
     </tbody>
 </table>
