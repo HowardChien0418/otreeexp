@@ -5,13 +5,16 @@
         .clr {
             color: #E74C3C;
         }
+        .clr1 {
+            color: #2E86C1;
+        }
     </style>
 {% endblock %}
 
 <table class="table table-sm table-striped table-bordered text-center">
     <thead>
     <th colspan="2"></th>
-    <th colspan="2">Player R</th>
+    <th colspan="2"><span class = "clr1">Player R</span></th>
     </thead>
     <tbody>
     <tr>
@@ -22,23 +25,23 @@
     <tr>
         <th rowspan="2"><span class = "clr">Player S</span></th>
         <td>沈默</td>
-        <td><span class = "clr">0</span>, 0</td>
+        <td><span class = "clr">0</span>, <span class = "clr1">0</span></td>
         <td>
             {% if player.is_player_s %}
-            <span class = "clr">{{ group.v }}</span>, <span class="blue">[{{ w1_lower_bound }}, {{ w1_upper_bound }}]</span>
+            <span class = "clr">{{ group.v }}</span>, <span class = "clr1">[{{ w1_lower_bound }}, {{ w1_upper_bound }}]</span>
             {% else %}
-            <span class = "clr">{{ group.v }}</span>, <span class="blue">{{ group.w1 }}</span>
+            <span class = "clr">{{ group.v }}</span>, <span class="clr1">{{ group.w1 }}</span>
             {% endif %}
         </td>
     </tr>
     <tr>
         <td>回報</td>
-        <td><span class = "clr">{{ x_neg }}</span>, 0</td>
+        <td><span class = "clr">{{ x_neg }}</span>, <span class = "clr1">0</span></td>
         <td>
             {% if player.is_player_s %}
-            <span class = "clr">{{ group.v }}</span>, <span class="blue">[{{ w1_lower_bound }}, {{ w1_upper_bound }}]</span>
+            <span class = "clr">{{ group.v }}</span>, <span class = "clr1">[{{ w1_lower_bound }}, {{ w1_upper_bound }}]</span>
             {% else %}
-            <span class = "clr">{{ group.v }}</span>, <span class="blue">{{ group.w1 }}</span>
+            <span class = "clr">{{ group.v }}</span>, <span class = "clr1">{{ group.w1 }}</span>
             {% endif %}
         </td>
     </tr>
